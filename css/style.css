@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
-/* Variables */
-/* Global */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -32,7 +30,6 @@ body {
   color: #777777;
 }
 
-/* Layout */
 .wrapper {
   display: -ms-flexbox;
   display: flex;
@@ -57,7 +54,6 @@ body {
   border-radius: 5px;
 }
 
-/* Logo */
 .logo {
   font-family: "Sacramento", cursive;
   font-weight: 400;
@@ -66,7 +62,6 @@ body {
   text-align: center;
 }
 
-/* Lists */
 .list {
   list-style-type: none;
   margin: 0;
@@ -81,12 +76,10 @@ body {
   display: inline-block;
 }
 
-/* Authors */
 .authors li {
   margin-bottom: 12px;
 }
 
-/* Post */
 .post {
   display: none;
 }
