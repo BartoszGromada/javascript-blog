@@ -19,7 +19,7 @@ const titleClickHandler = function(event){
   }
 
   targetArticle.classList.add('active');
-} 
+};
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
@@ -35,8 +35,8 @@ function generateTitleLinks(){
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
     html += linkHTML;
-      /* titleList.innerHTML += linkHTML; */
-      /* titleList.insertAdjacentHTML('afterbegin',linkHTML); */
+    /* titleList.innerHTML += linkHTML; */
+    /* titleList.insertAdjacentHTML('afterbegin',linkHTML); */
   }
 
   titleList.innerHTML = html;

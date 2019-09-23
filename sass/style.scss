@@ -122,6 +122,10 @@ body {
 
 // Post
 
+.posts {
+  overflow: auto;
+}
+
 .post {
   display: block;
   z-index: 0;

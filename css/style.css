@@ -99,6 +99,10 @@ body a {
   margin-bottom: 12px;
 }
 
+.posts {
+  overflow: auto;
+}
+
 .post {
   display: block;
   z-index: 0;
