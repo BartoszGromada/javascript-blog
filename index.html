@@ -3,18 +3,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Javascript-blog</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="blog">
 			<div class="container">
     			<h1 class="logo">my blog</h1>
+    			<main clas="wrapper">
+    				<section class="social-media">
+    					<ul class="list social">
+    						<li class="social-item"><i class="fab fa-twitter-square"></i></li>
+    						<li class="social-item"><i class="fab fa-google-plus-square"></i></li>
+    						<li class="social-item"><i class="fab fa-facebook-square"></i></li>
+    						<li class="social-item"><i class="fab fa-instagram"></i></li>
+    					</ul>
+    				</section>
+				</main>
     			<main class="wrapper">
-      				<aside class="sidebar">
+      				<aside class="sidebar"> 
         				<h2 class="section-title">All posts</h2>
         				<ul class="list titles">
 				          	<li><a href="#article-1" class="active"><span>Article 1</span></a></li>
-				          	<li><a href="#article-2" class="active"><span>Article 2</span></a></li>
+				          	<li><a href="#article-2"><span>Article 2</span></a></li>
 				          	<li><a href="#article-3"><span>Article 3</span></a></li>
 				          	<li><a href="#article-4"><span>Article 4</span></a></li>
 				          	<li><a href="#article-5"><span>Article 5</span></a></li>
@@ -44,7 +55,7 @@
             					</ul>
           					</div>
         				</article>        
-        				<article class="post active" id="article-2">
+        				<article class="post" id="article-2">
           					<h3 class="post-title">Article 2</h3>
           					<p class="post-author">by Theo Tabby</p>
           					<div class="post-content">
@@ -210,6 +221,24 @@
             					</ul>
           					</div>
        	 				</article>
+       	 				<article class="post" id="article-11">
+					        <h3 class="post-title">Article 11</h3>
+					        <p class="post-author">by George Tuxedo</p>
+					        <div class="post-content">
+					            <p>Mauris vel pellentesque turpis, ac sodales nisl. Quisque iaculis mi velit, ut convallis tellus accumsan a. Quisque iaculis, nisi et dignissim tincidunt, nisl eros euismod nulla, finibus laoreet erat enim posuere elit.</p>
+					            
+					            <p>Aenean at semper urna. Duis vel sapien molestie, egestas diam consequat, molestie nulla. Praesent a malesuada metus. Praesent et tempus leo.</p>
+					            <p>Mauris in eleifend neque, vitae eleifend velit. Maecenas purus est, bibendum eget imperdiet id, dictum sed ante. Aenean a magna et eros sagittis aliquet.</p>      
+          					</div>
+          					<div class="post-tags">
+					            <p><strong>Tags:</strong></p>
+					            <ul class="list list-horizontal">
+						            <li><a href="#">news</a></li>
+						            <li><a href="#">reviews</a></li>
+						            <li><a href="#">design</a></li>
+	            				</ul>
+          					</div>
+        				</article>        
       				</section>
       				<aside class="sidebar">
 				        <h2 class="section-title">Tags</h2>
@@ -245,6 +274,11 @@
         				</ul>
       				</aside>
     			</main>
+    			<main clas="wrapper">
+    				<section class="contact">
+    					<span><i class="far fa-copyright"></i> by Codilla & Bartosz Gromada</span>
+    				</section>
+				</main>
   			</div>
 		</div>
 		<script src="js/script.js"></script>

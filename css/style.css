@@ -4,12 +4,16 @@
 }
 
 body {
-  background: #fff;
+  background: #444;
   font-family: "Source Sans Pro", sans-serif;
-  color: #444;
+  color: #fff;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
+}
+
+body a {
+  color: #fff;
 }
 
 .container {
@@ -22,12 +26,13 @@ body {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
+  color: lightblue;
 }
 
 .section-title span {
   text-transform: none;
   font-weight: 400;
-  color: #777777;
+  color: lightblue;
 }
 
 .wrapper {
@@ -44,13 +49,14 @@ body {
 .posts {
   -ms-flex: 2 0 0px;
       flex: 2 0 0;
+  position: relative;
 }
 
-.sidebar, .posts {
-  background: #fff;
+.sidebar, .posts, .contact {
+  background: #444;
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid #444;
+  border: 1px solid #fff;
   border-radius: 5px;
 }
 
@@ -60,6 +66,18 @@ body {
   font-size: 104px;
   line-height: 1;
   text-align: center;
+  color: lightblue;
+}
+
+.social-media {
+  margin: 10px 0 10px 10px;
+  font-size: 34px;
+  padding-left: 40px;
+}
+
+.social-item {
+  display: inline;
+  margin-right: 20px;
 }
 
 .list {
@@ -70,6 +88,7 @@ body {
 
 .list .active {
   font-weight: bold;
+  color: lightblue;
 }
 
 .list-horizontal li {
@@ -81,11 +100,20 @@ body {
 }
 
 .post {
-  display: none;
+  display: block;
+  z-index: 0;
+  opacity: 0;
+  position: absolute;
 }
 
 .post.active {
-  display: block;
+  z-index: 1;
+  opacity: 100;
+  transition: 1s linear;
+}
+
+.post-title {
+  color: lightblue;
 }
 
 .post-author {
@@ -99,5 +127,13 @@ body {
 
 .post-tags p {
   margin: 0 10px 0 0;
+  color: lightblue;
+}
+
+.contact {
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: center;
+  color: lightblue;
 }
 /*# sourceMappingURL=style.css.map */
