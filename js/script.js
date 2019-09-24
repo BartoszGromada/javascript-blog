@@ -1,5 +1,10 @@
 'use strict';
 
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles',
+  optArticleTagsSelector = '.post-tags .list';
+
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this,
@@ -21,11 +26,6 @@ const titleClickHandler = function(event){
   targetArticle.classList.add('active');
 };
 
-const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list';
-
 function generateTitleLinks(){
   let html ='';
   const titleList = document.querySelector(optTitleListSelector),
@@ -41,8 +41,6 @@ function generateTitleLinks(){
     /* titleList.insertAdjacentHTML('afterbegin',linkHTML); */
   }
 
-  titleList.innerHTML = html;
-
   const links = document.querySelectorAll('.titles a');
 
   for (let link of links) {
@@ -54,14 +52,51 @@ generateTitleLinks();
 
 function generateTags(){
   let html ='';
-  const articles = document.querySelectorAll(optArticleSelector);
+  const tagsList = document.querySelector(optArticleTagsSelector),
+    articles = document.querySelectorAll(optArticleSelector);
     
   for (let article of articles) {
-    const tagsList = article.querySelector(optArticleTagsSelector),
-      acticleTags = article.getAttribute('data-tags'),
+    const articleTags = article.getAttribute('data-tags'),
       articleTagsArray = articleTags.split(' ');
-  }
 
+      for (let tag of articleTagsArray) {
+        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li>';
+      
+        html += linkHTML;
+      } 
+  }
 }
 
 generateTags();
+
+function tagClickHandler(event){
+  event.preventDefault();
+  const clickedElement = this,
+    href = clickedElement.getAttribute('href'),
+    tag = href.replace('#tag-', ''),
+    ActiveTags = document.querySelectorAll('a.active[href^="#tag-"]');
+    
+  for (let tag of ActiveTags) {
+    activetags.classList.remove('active');
+  }
+
+  targetTag = document.querySelectorAll(href);
+
+  for (let tag of targetTag) {
+    targetTag.classList.add('active');
+  }
+  
+  generateTitleLinks('[data-tags~="' + tag + '"]');
+}
+
+function addClickListenersToTags(){
+  /* find all links to tags */
+
+  /* START LOOP: for each link */
+
+    /* add tagClickHandler as event listener for that link */
+
+  /* END LOOP: for each link */
+}
+
+addClickListenersToTags();
