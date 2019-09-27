@@ -26,10 +26,10 @@ const titleClickHandler = function(event){
   targetArticle.classList.add('active');
 };
 
-function generateTitleLinks(){
+function generateTitleLinks(customSelector = ''){
   let html ='';
   const titleList = document.querySelector(optTitleListSelector),
-    articles = document.querySelectorAll(optArticleSelector);
+    articles = document.querySelectorAll(optArticleSelector + customSelector);
 
   for (let article of articles) {
     const articleId = article.getAttribute('id'),
@@ -52,18 +52,17 @@ generateTitleLinks();
 
 function generateTags(){
   let html ='';
-  const tagsList = document.querySelector(optArticleTagsSelector),
-    articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector);
     
   for (let article of articles) {
-    const articleTags = article.getAttribute('data-tags'),
+    const tagsList = article.querySelector(optArticleTagsSelector),
+      articleTags = article.getAttribute('data-tags'),
       articleTagsArray = articleTags.split(' ');
 
-      for (let tag of articleTagsArray) {
-        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li>';
-      
-        html += linkHTML;
-      } 
+    for (let tag of articleTagsArray) {
+      const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li>';
+      html += linkHTML;
+    }
   }
 }
 
@@ -74,7 +73,7 @@ function tagClickHandler(event){
   const clickedElement = this,
     href = clickedElement.getAttribute('href'),
     tag = href.replace('#tag-', ''),
-    ActiveTags = document.querySelectorAll('a.active[href^="#tag-"]');
+    activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
     
   for (let tag of ActiveTags) {
     activetags.classList.remove('active');

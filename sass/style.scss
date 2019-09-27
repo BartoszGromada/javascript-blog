@@ -65,7 +65,7 @@ body {
 .sidebar, .posts, .contact,{
   background: $color-dark;
   margin-right: 10px;
-  padding: 40px;
+  padding: 20px 40px;
   border: 1px solid $color-light;
   border-radius: 5px;
 }
@@ -124,6 +124,7 @@ body {
 
 .posts {
   overflow: auto;
+  text-align: justify;
 }
 
 .post {

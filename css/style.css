@@ -55,7 +55,7 @@ body a {
 .sidebar, .posts, .contact {
   background: #444;
   margin-right: 10px;
-  padding: 40px;
+  padding: 20px 40px;
   border: 1px solid #fff;
   border-radius: 5px;
 }
@@ -101,6 +101,7 @@ body a {
 
 .posts {
   overflow: auto;
+  text-align: justify;
 }
 
 .post {
