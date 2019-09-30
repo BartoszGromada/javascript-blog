@@ -6,7 +6,8 @@ const optArticleSelector = '.post',
   optArticleTagsSelector = '.post-tags .list',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
-  optTagsListSelector ='.tags.list';
+  optTagsListSelector = '.tags.list',
+  optAuthorListSelector = '.authors.list';
 
 const titleClickHandler = function(event){
   event.preventDefault();
@@ -29,7 +30,7 @@ const titleClickHandler = function(event){
   targetArticle.classList.add('active');
 };
 
-function generateTitleLinks(customSelector = ''){
+function generateTitleLinks(customSelector = '') {
   const titleList = document.querySelector(optTitleListSelector),
     articles = document.querySelectorAll(optArticleSelector + customSelector);
     
@@ -65,30 +66,32 @@ function generateTags(){
   }
 }
 
-function generateTagsSidebar(argument) {
-  const allTags = {};
+function generateTagsSidebar() {
+  const allTags = [];
   const articles = document.querySelectorAll(optArticleSelector);
 
   for (let article of articles) {
-    const tagsList = article.querySelector(optArticleTagsSelector);
-    console.log(tagsList);
     const articleTags = article.getAttribute('data-tags');
-    console.log(articleTags);
     const articleTagsArray = articleTags.split(' ');
-    console.log(articleTagsArray);
+    const tagsList = document.querySelector(optTagsListSelector);
 
-    for (let tag of articleTags) {
+    for (let tag of articleTagsArray) {
         if (allTags.hasOwnProperty(tag)) {
-            allTags[tag] +=1;
+            allTags[tag] += 1;
         } else {
-          allTags[tag] =1;
+            allTags[tag] = 1;
         }
     }
-     console.log(allTags);
+    tagsList.innerHTML = "";
+    for (let tag in allTags) {
+      const 
+        linkHTML = '<li><a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] +') </a></li>';
+      tagsList.innerHTML += linkHTML;
+    }
   }
 }
 
-function tagClickHandler(event){
+function tagClickHandler(event) {
 
   event.preventDefault();
   const clickedElement = event.target,
@@ -129,7 +132,6 @@ function generateAuthors(){
     
     authorList.innerHTML += linkHTML;
   }
-}
 
 function authorClickHandler(event){
 
