@@ -126,6 +126,11 @@ body a {
   font-style: italic;
 }
 
+.post-author .active {
+  font-weight: bold;
+  color: lightblue;
+}
+
 .post-tags {
   display: -ms-flexbox;
   display: flex;
