@@ -96,6 +96,36 @@ body a {
   margin-right: 5px;
 }
 
+.tags .tag-size-1 {
+  color: lightblue;
+  font-size: 8px;
+}
+
+.tags .tag-size-2 {
+  color: White;
+  font-size: 12px;
+}
+
+.tags .tag-size-3 {
+  color: lightblue;
+  font-size: 16px;
+}
+
+.tags .tag-size-4 {
+  color: White;
+  font-size: 20px;
+}
+
+.tags .tag-size-5 {
+  color: lightblue;
+  font-size: 24px;
+  font-weight: 700px;
+}
+
+.tags li {
+  display: inline-block;
+}
+
 .authors li {
   margin-bottom: 12px;
 }
