@@ -66,7 +66,26 @@ function generateTags(){
 }
 
 function generateTagsSidebar(argument) {
-  let allTags = {};
+  const allTags = {};
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  for (let article of articles) {
+    const tagsList = article.querySelector(optArticleTagsSelector);
+    console.log(tagsList);
+    const articleTags = article.getAttribute('data-tags');
+    console.log(articleTags);
+    const articleTagsArray = articleTags.split(' ');
+    console.log(articleTagsArray);
+
+    for (let tag of articleTags) {
+        if (allTags.hasOwnProperty(tag)) {
+            allTags[tag] +=1;
+        } else {
+          allTags[tag] =1;
+        }
+    }
+     console.log(allTags);
+  }
 }
 
 function tagClickHandler(event){
