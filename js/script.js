@@ -155,7 +155,7 @@ function tagClickHandler(event) {
 
 function addClickListenersToTags()  {
 
-  const tagLinks = document.querySelectorAll(select.article.tagsLink, select.article.tags, select.listOf.tagsLink);
+  const tagLinks = document.querySelectorAll(select.article.tagsLink + ', ' + select.article.tags + ', ' + select.listOf.tagsLink);
   for (let tag of tagLinks) {
     tag.addEventListener('click', tagClickHandler);
   }
