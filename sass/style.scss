@@ -102,7 +102,7 @@ body {
   padding: 0;
   .active {
     font-weight: bold;
-    color: $color-alternative
+    color: $color-alternative;
   }
 }
 
@@ -115,29 +115,22 @@ body {
 
 .tags {
 	.tag-size-1 {
-		color: $color-alternative;
 		font-size: 8px;
 	}
 	.tag-size-2 {
-		color: White;
 		font-size: 12px;
 	}
 	.tag-size-3 {
-		color: $color-alternative;
 		font-size: 16px;
 	}
 	.tag-size-4 {
-		color: White;
 		font-size: 20px;
 	}
 	.tag-size-5 {
-		color: $color-alternative;
 		font-size: 24px;
-		font-weight: 700px;
 	}
 	li {
-	display:inline-block;
-
+		display:inline-block;
 	}
 }
 

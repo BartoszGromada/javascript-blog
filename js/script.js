@@ -120,6 +120,50 @@ function generateTagsSidebar() {
   }
 }
 
+function tagClickHandler(event) {
+
+  event.preventDefault();
+  const clickedElement = event.target,
+    href = clickedElement.getAttribute('href'),
+    tag = href.replace('#tag-',''),
+    activeTags = document.querySelectorAll('a.active[href^="#tag-"]'),
+    tagLinks = document.querySelectorAll('a[href^="#tag-' + tag + '"]');
+
+  for (let activeTag of activeTags) {
+    activeTag.classList.remove('active');
+  }
+  
+  for (let tagLink of tagLinks) {
+    tagLink.classList.add('active');
+  }
+
+  generateTitleLinks('[data-tags~="' + tag + '"]');
+}
+
+function addClickListenersToTags()  {
+
+  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector, optTagsListSelector);
+  console.log(tagLinks);
+
+  for (let tag of tagLinks) {
+    tag.addEventListener('click', tagClickHandler);
+  }
+}
+
+function generateAuthors(){
+
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  for (let article of articles) {
+
+    const authorList = article.querySelector(optArticleAuthorSelector),
+      articleAuthor = article.getAttribute('data-author'),
+      linkHTML = '<a href="#author-' + articleAuthor + '"> by ' + articleAuthor + '</a>';
+
+    authorList.innerHTML += linkHTML;
+  }
+}
+
 function generateAuthorsSidebar() {
   const allTags = [];
   const articles = document.querySelectorAll(optArticleSelector);
@@ -146,48 +190,6 @@ function generateAuthorsSidebar() {
   }
 }
 
-function tagClickHandler(event) {
-
-  event.preventDefault();
-  const clickedElement = event.target,
-    href = clickedElement.getAttribute('href'),
-    tag = href.replace('#tag-',''),
-    activeTags = document.querySelectorAll('a.active[href^="#tag-"]'),
-    tagLinks = document.querySelectorAll('a[href^="#tag-' + tag + '"]');
-
-  for (let activeTag of activeTags) {
-    activeTag.classList.remove('active');
-  }
-  
-  for (let tagLink of tagLinks) {
-    tagLink.classList.add('active');
-  }
-
-  generateTitleLinks('[data-tags~="' + tag + '"]');
-}
-
-function addClickListenersToTags(){
-
-  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector);
-
-  for (let tag of tagLinks) {
-    tag.addEventListener('click', tagClickHandler);
-  }
-}
-
-function generateAuthors(){
-
-  const articles = document.querySelectorAll(optArticleSelector);
-
-  for (let article of articles) {
-
-    const authorList = article.querySelector(optArticleAuthorSelector),
-      articleAuthor = article.getAttribute('data-author'),
-      linkHTML = '<a href="#author-' + articleAuthor + '"> by ' + articleAuthor + '</a>';
-    authorList.innerHTML += linkHTML;
-  }
-}
-
 function authorClickHandler(event){
 
   event.preventDefault();
@@ -196,6 +198,27 @@ function authorClickHandler(event){
     author = href.replace('#author-',''),
     activeAuthors = document.querySelectorAll('a.active[href^="#author-"]'),
     authorLinks = document.querySelectorAll('p a[href^="#author-"]');
+
+  for (let activeAuthor of activeAuthors) {
+    activeAuthor.classList.remove('active');
+  }
+
+  for (let authorLink of authorLinks) {
+    authorLink.classList.add('active');
+  }
+
+  generateTitleLinks('[data-author="' + author + '"]');
+}
+
+function authorClickHandlerSidebar(event){
+
+  event.preventDefault();
+  const clickedElement = event.target,
+    href = clickedElement.getAttribute('href'),
+    author = href.replace('#author-',''),
+    activeAuthors = document.querySelectorAll('a.active[href^="#author-"]'),
+    authorLinks = document.querySelectorAll('.authors a[href^="#author-' + author + '"]');
+
 
   for (let activeAuthor of activeAuthors) {
     activeAuthor.classList.remove('active');
@@ -217,18 +240,31 @@ function addClickListenersToAuthors() {
   }
 }
 
+function addClickListenersToAuthorsSidebar() {
+
+  const authorLinks = document.querySelectorAll(optAuthorListSelector);
+
+  for (let authorLink of authorLinks) {
+    authorLink.addEventListener('click', authorClickHandlerSidebar);
+  }
+}
+
+
+
 generateTitleLinks();
 
 generateTags();
 
-generateTagsSidebar();
+generateAuthors();
 
 calculateTagsParams();
+
+generateTagsSidebar();
 
 generateAuthorsSidebar();
 
 addClickListenersToTags();
 
-generateAuthors();
-
 addClickListenersToAuthors();
+
+addClickListenersToAuthorsSidebar();
