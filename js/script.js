@@ -11,7 +11,6 @@ const optArticleSelector = '.post',
   optCloudClassCount = '5',
   optCloudClassPrefix = 'tag-size-';
 
-
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this,
@@ -40,14 +39,12 @@ function generateTitleLinks(customSelector = '') {
   titleList.innerHTML = '';
 
   for (let article of articles) {
-
     const articleId = article.getAttribute('id'),
       articleTitle = article.querySelector(optTitleSelector).innerHTML,
       linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
     
     titleList.innerHTML += linkHTML;
   }
-  
   const links = document.querySelectorAll('.titles a');
   
   for (let link of links) {
@@ -75,20 +72,18 @@ function calculateTagsParams(tags) {
     max : 0,
     min: 999999
   };
-
   for(let tag in tags)  {
     params.max = Math.max(tags[tag], params.max);
     params.min = Math.min(tags[tag], params.min);
   }
-
   return params;
 }
 
 function calculateTagClass(count, params) {
-  const normalizedCount = count - params.min;
-  const normalizedMax = params.max - params.min;
-  const percentage = normalizedCount / normalizedMax;
-  const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+  const normalizedCount = count - params.min,
+    normalizedMax = params.max - params.min,
+    percentage = normalizedCount / normalizedMax,
+    classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
 
   return optCloudClassPrefix + classNumber;
 }
@@ -248,8 +243,6 @@ function addClickListenersToAuthorsSidebar() {
     authorLink.addEventListener('click', authorClickHandlerSidebar);
   }
 }
-
-
 
 generateTitleLinks();
 
