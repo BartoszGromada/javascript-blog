@@ -131,29 +131,28 @@ function generateTagsSidebar() {
       console.log(articleTagsArray);
       
     for (let tag of articleTagsArray) {
-      if (tagsArray.hasOwnProperty(tag)) {
-        tagsArray[tag] += 1;
+      if (allTagsData.hasOwnProperty(tag)) {
+        allTagsData[tag] += 1;
       } else {
-        tagsArray[tag] = 1;
+        allTagsData[tag] = 1;
       }
     }
   }
 
-  const tagsParams = calculateTagsParams(tagsArray);
+  console.log(allTagsData);
+
+  const tagsParams = calculateTagsParams(allTagsData);
 
   tagsList.innerHTML = '';
 
-  for (let tag in tagsArray) {
-    tagsArray.push({
+  for (let tag in allTagsData) {
+    allTagsData.push({
         tag: tag,
-        count: tagsArray[tag],
-        className: calculateTagClass(tagsArray[tag], tagsParams),
+        count: allTagsData[tag],
+        className: calculateTagClass(allTagsData[tag], tagsParams),
     });
   }
-  
-  console.log(tagsArray);
-
-  tagsList.innerHTML = templates.tagCloudLink(tagsArray);
+  tagsList.innerHTML = templates.tagCloudLink(allTagsData);
 
   }
 
