@@ -146,7 +146,7 @@ function generateTagsSidebar() {
   tagsList.innerHTML = '';
 
   for (let tag in allTagsData) {
-    allTagsData.push({
+    tagsArray.push({
         tag: tag,
         count: allTagsData[tag],
         className: calculateTagClass(allTagsData[tag], tagsParams),
