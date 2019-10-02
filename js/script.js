@@ -122,9 +122,12 @@ function generateTagsSidebar() {
     articles = document.querySelectorAll(select.all.article),
     tagsList = document.querySelector(select.listOf.tags);
 
+
   for (let article of articles) {
     const articleTags = article.getAttribute('data-tags'),
       articleTagsArray = articleTags.split(' ');
+      console.log(articleTags);
+      console.log(articleTagsArray);
       
     for (let tag of articleTagsArray) {
       if (allTagsData.hasOwnProperty(tag)) {
@@ -136,7 +139,7 @@ function generateTagsSidebar() {
   }
 
   console.log(allTagsData);
-  
+
   const tagsParams = calculateTagsParams(allTagsData);
 
   tagsList.innerHTML = '';
@@ -205,7 +208,6 @@ function generateAuthorsSidebar() {
   for (let article of articles) {
     const articleAuthor = article.getAttribute('data-author'),
       articleAuthorArray = articleAuthor.split(' ');
-      console.log(articleAuthorArray);
       
     for (let author of articleAuthorArray) {
       if (allAuthorData.hasOwnProperty(author)) {
