@@ -118,7 +118,8 @@ function calculateTagClass(count, params) {
 }
 
 function generateTagsSidebar() {
-  const allTagsData = {tags: []},
+  const allTagsData = {},
+    tagsArray = [],
     articles = document.querySelectorAll(select.all.article),
     tagsList = document.querySelector(select.listOf.tags);
 
@@ -130,29 +131,29 @@ function generateTagsSidebar() {
       console.log(articleTagsArray);
       
     for (let tag of articleTagsArray) {
-      if (allTagsData.hasOwnProperty(tag)) {
-        allTagsData[tag] += 1;
+      if (tagsArray.hasOwnProperty(tag)) {
+        tagsArray[tag] += 1;
       } else {
-        allTagsData[tag] = 1;
+        tagsArray[tag] = 1;
       }
     }
   }
 
-  console.log(allTagsData);
-
-  const tagsParams = calculateTagsParams(allTagsData);
+  const tagsParams = calculateTagsParams(tagsArray);
 
   tagsList.innerHTML = '';
 
-  for (let tag in allTagsData) {
-    allTagsData.tags.push({
+  for (let tag in tagsArray) {
+    tagsArray.push({
         tag: tag,
-        count: allTagsData[tag],
-        className: calculateTagClass(allTagsData[tag], tagsParams),
+        count: tagsArray[tag],
+        className: calculateTagClass(tagsArray[tag], tagsParams),
     });
   }
-    
-  tagsList.innerHTML = templates.tagCloudLink(allTagsData);
+  
+  console.log(tagsArray);
+
+  tagsList.innerHTML = templates.tagCloudLink(tagsArray);
 
   }
 
