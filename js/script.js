@@ -142,9 +142,9 @@ function generateTagsSidebar() {
         count: allTagsData[tag],
         className: calculateTagClass(allTagsData[tag], tagsParams),
       });
-      tagsList.innerHTML = templates.tagCloudLink(allTagsData);
-      console.log(allTagsData);
     }
+    tagsList.innerHTML = templates.tagCloudLink(allTagsData);
+    console.log(allTagsData);
   }
 }
 

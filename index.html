@@ -204,7 +204,9 @@
   			</div>
 		</div>
 		<script id="template-tagSidebar-link" type="text/x-handlebars-template">
-  			<li><a class="{{className}}"href="#tag-{{tag}}">{{tag }}</a></li>
+			{{#each tags}}
+  				<li><a class="{{className}}"href="#tag-{{tag}}">{{tag }}</a></li>
+  			{{/each}}
 		</script>
 		<script id="template-author-link" type="text/x-handlebars-template">
   			<a href="#author{{ id }}">by {{ title }}</a>
