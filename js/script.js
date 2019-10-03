@@ -152,7 +152,7 @@ function generateTagsSidebar() {
         className: calculateTagClass(allTagsData[tag], tagsParams),
     });
   }
-  tagsList.innerHTML = templates.tagCloudLink(allTagsData);
+  tagsList.innerHTML = templates.tagCloudLink(tagsArray);
 
   }
 
