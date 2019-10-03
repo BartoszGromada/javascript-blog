@@ -127,8 +127,6 @@ function generateTagsSidebar() {
   for (let article of articles) {
     const articleTags = article.getAttribute('data-tags'),
       articleTagsArray = articleTags.split(' ');
-      console.log(articleTags);
-      console.log(articleTagsArray);
       
     for (let tag of articleTagsArray) {
       if (allTagsData.hasOwnProperty(tag)) {
@@ -138,8 +136,6 @@ function generateTagsSidebar() {
       }
     }
   }
-
-  console.log(allTagsData);
 
   const tagsParams = calculateTagsParams(allTagsData);
 
@@ -152,7 +148,7 @@ function generateTagsSidebar() {
         className: calculateTagClass(allTagsData[tag], tagsParams),
     });
   }
-  tagsList.innerHTML = templates.tagCloudLink(tagsArray);
+  tagsList.innerHTML = templates.tagCloudLink({ tags: tagsArray });
 
   }
 
@@ -201,7 +197,8 @@ function generateAuthors(){
 }
 
 function generateAuthorsSidebar() {
-  const allAuthorData = {authors: []},
+  const allAuthorData = {},
+    authorsArray = [],
     articles = document.querySelectorAll(select.all.article),
     authorsList = document.querySelector(select.listOf.authors);
 
@@ -221,12 +218,12 @@ function generateAuthorsSidebar() {
   authorsList.innerHTML = '';
 
   for (let author in allAuthorData) {
-    allAuthorData.authors.push ({
+    authorsArray.push ({
       author: author,
       count: allAuthorData[author],
     });
   }
-  authorsList.innerHTML = templates.authorsList(allAuthorData);
+  authorsList.innerHTML = templates.authorsList({ authors: authorsArray});
   }
 
 
