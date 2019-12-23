@@ -223,6 +223,7 @@ function generateAuthorsSidebar() {
       count: allAuthorData[author],
     });
   }
+  console.log(authorsArray);
   authorsList.innerHTML = templates.authorsList({ authors: authorsArray});
   }
 
