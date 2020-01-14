@@ -1,1 +1,1 @@
-WebSite: https://bartoszgromada.github.io/javascript-blog/
+WebSite: https://bartoszgromada.github.io/project_blog_javascript
